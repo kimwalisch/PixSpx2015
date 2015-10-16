@@ -1,0 +1,12 @@
+#!/bin/bash
+if ! tst_nth_rightp 394906913798221440 2604683 | grep 394906913903735329
+then
+    echo "Error";
+    exit 1;
+fi
+
+echo "ok"
+exit 0
+
+  
+

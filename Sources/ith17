@@ -1,0 +1,12 @@
+#!/bin/bash
+if ! tst_nth_leftp 4185296581676448768 4871153  | grep 4185296581467695669
+then
+    echo "Error";
+    exit 1;
+fi
+
+echo "ok"
+exit 0
+
+  
+

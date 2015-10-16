@@ -1,0 +1,12 @@
+#!/bin/bash
+if ! tst_nth_leftp 37124508056353568 296420  | grep 37124508045065437
+then
+    echo "Error";
+    exit 1;
+fi
+
+echo "ok"
+exit 0
+
+  
+

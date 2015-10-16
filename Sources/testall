@@ -1,0 +1,15 @@
+#/bin/bash
+for file in tst*;
+do
+    if [[ -x "$file" ]]
+    then
+	$file > /dev/null
+	STATUS="$?"
+	if [ "$STATUS" -ne 0 ]
+	then
+	    echo "Test de $file echoue"
+	else
+	    echo "Test de $file ok"
+	fi
+    fi
+done

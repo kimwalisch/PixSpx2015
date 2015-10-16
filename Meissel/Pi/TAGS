@@ -1,0 +1,74 @@
+
+Li.cc,149
+const double gamma_euler_const 4,57
+double Ei(6,116
+double LI2INV(18,367
+double LiMinus1(25,503
+double Riemann(32,631
+double RiemannInv(39,862
+
+S0.cc,55
+static  access_frame accessf;3,24
+long128 sumS0(5,55
+
+S2.cc,45
+long128 Somme2=15,368
+long128 sumS2(18,388
+
+S3.cc,420
+static sieve_by_slice<bit_table_dynamic, long64> sieve;3,24
+static Vector<long64> p_partial_sums;4,80
+static long128 xp;5,118
+static double  xp_double;6,137
+static long32  sieve_begin;7,163
+static long32  end;8,191
+static long32  pb;9,211
+long128 sumS3(17,395
+void  collect_binary_terms(126,3971
+collect_binary_terms_double(160,4859
+collect_non_binary_terms(188,5619
+collect_non_binary_terms_double(216,6288
+
+SU.cc,19
+long128 sumU(3,31
+
+V1.cc,78
+static long128 xp2_long;4,49
+inline long128 fint(6,75
+long128 sumV1(15,335
+
+V2.cc,20
+long128 sumV2(7,90
+
+W1W2.cc,23
+long128 sumW1_W2(6,93
+
+W3W5.cc,99
+long128 slowsum(5,50
+inline long128 quicksum(15,272
+long128 sumW3(28,605
+long128 sumW5(57,1419
+
+W4.cc,20
+long128 sumW4(5,50
+
+ithprime.cc,15
+int main(5,58
+
+main.cc,15
+int main(4,43
+
+pi.cc,92
+void check_data(7,139
+namespace meissel{meissel130,4462
+long128 pi(meissel::pi131,4481
+
+pi_compute_p2.cc,155
+static sieve_by_slice<bit_table, long64> aux_sieve;4,46
+static sieve_by_slice<bit_table_cnte, long64> main_sieve;5,98
+main_term_of_p2(8,166
+P2(63,1599
+
+pi_fxy.cc,44
+long128 sumS1(6,74
+long128  pi_fxy(15,210

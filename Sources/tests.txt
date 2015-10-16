@@ -1,0 +1,9 @@
+tst_bit_table						ok
+tst_bit_table_cnte					93
+tst_bit_table_dynamic				93
+tst_primes					        1227
+tst_prime_generator				104729
+tst_sieve_bit_table					ok
+tst_sieve_bit_table_cnte				ok
+tst_sieve_bit_table_dynamic			ok
+

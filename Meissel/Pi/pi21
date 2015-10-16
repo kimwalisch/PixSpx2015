@@ -1,0 +1,77 @@
+Option -v, verbose mode
+y default value 0, has been replaced by 113058950
+z default value 0, has been replaced by 904471600
+Computing pi(x) for : 
+  x = 1000000000000000000000
+  y = 113058950
+  z = 904471600
+
+Making prime table up to y
+Primes_table done, number_of_primes = 6468237
+
+Prime_table created
+    number of presieved primes  = 2
+    first non presieved prime   = 5
+    primes::number_of_primes()  = 6468237
+    primes::max_prime()         = 113058947
+
+Global precomputed variables: 
+  x^(1/2)          = 31622776601
+  x^(1/3)          = 10000000
+  x^(1/4)          = 177827
+  z^(1/2)          = 30074
+  (x/y)^(1/2)      = 2974044
+  x/y^2            = 78233
+  pi(y)            = 6468239
+  piB(y)           = 6468237    (piB(u) = pi(u) - number-of_presieve_primes)
+  piB(z^(1/2))     = 3249
+  piB(x^(1/3))     = 664577
+  piB(x^(1/4))     = 16142
+  piB((x/y)^(1/2)) = 215060
+  piB(x/y^2)       = 7681
+  index of first good prime = 10535
+  first good prime          = 111029
+
+
+I Computation of P2(x,y)
+   P2(x,y) = 9278997694984069755
+   timer: computation of  P2 took: 13h, 59mn, 56.8s
+
+II Computation of Phi(x,y)
+    Squarefree tables initialized
+    Number of terms of S0 sum : 230691813
+    S0 = 33418457063388801555
+
+    S1 = 16841231795970
+
+    S2 = U + V1 + V2
+    U  = 1976521347018
+    V1 = -384288995755392798
+    V2 = W1 + W2 + W3 + W4 + W5
+         W1 = 0
+         W2 = 2937408392789145052
+         timer: computation of medium_primes:W1_W2 took: 2h, 46mn, 11.8s
+         W3 = 817762765660106442
+         timer: computation of medium_primes:W3 took: 3h, 25mn, 17.7s
+         W4 = 282025737810583497
+         timer: computation of medium_primes:W4 took: 1h, 26mn, 26.0s
+         W5 = 283577430308926861
+         timer: computation of medium_primes:W5 took: 2h, 25mn, 13.5s
+    S2= 3936487307334716072
+
+Bad primes : from  5 upto 110989
+Good primes begin with 111029
+    S3 = -6948694030958980152
+        timer: computation of sieve terms took: 7h, 20mn, 1.2s
+        number of binary terms       = 104178845139
+        total of binary terms        = 29887644996954435291
+        number of non binary terms   = 24498484509
+        total of non binary terms    = -36836339027913415443
+
+   Phi(x,y)   =  S0 + S1 + S2 + S3 = 30406267180996333445
+
+ III Pi(x) = Phi(x,y) - P2(x,y) + Pi(y)-1  = 21127269486018731928
+ timer: computation of   Pi(x) took: 1d, 7h, 23mn, 7.5s
+x     = 1000000000000000000000
+Pi(x) = 21127269486018731928
+timer: computation of Pi(x) took: 1d, 7h, 23mn, 7.5s

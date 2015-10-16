@@ -1,0 +1,10 @@
+#/bin/bash
+for file in tst*;
+do
+    if [[ -x "$file" ]]
+then
+    echo -e "________________________________________________________________\n"
+    echo -e "\nTEST of " $file  "\n"			
+    $file			
+fi
+done

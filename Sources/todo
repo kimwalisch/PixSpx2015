@@ -1,0 +1,4 @@
+Reflechir a la correction de bit_table_dynamic.cc ligne 15 NO_COUNT oui ou non
+
+Remplacer les def WORD  par const /.....
+

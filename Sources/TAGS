@@ -1,0 +1,204 @@
+
+arith_functions.cc,291
+long min(3,19
+table_invmod32::create(8,81
+table_invmod32::table_invmod32(16,219
+arith_mod32::create(22,285
+arith_mod32::arith_mod32(63,1093
+squareroot128(69,1153
+squareroot64(84,1336
+cuberoot128(99,1485
+log128(114,1688
+exp128(120,1743
+pow128(126,1798
+is_exact_as_double(132,1863
+
+arith_long128.cc,146
+static char buff[buff3,30
+static char alphabet[alphabet4,53
+static int base=5,145
+std::ostream& operator<<(7,166
+long128 atolong128(34,542
+
+big_primes.cc,15
+int main(5,51
+
+bigprimes.cc,16
+int main(9,126
+
+bit_sum_dynamic.cc,234
+maxpow2(4,73
+bit_table_dynamic::create(12,160
+bit_table_dynamic::display(29,546
+bit_table_dynamic::fill(47,858
+bit_table_dynamic::unset_bit(62,1182
+bit_table_dynamic::count(73,1416
+bit_table_dynamic::~bit_table_dynamic(84,1725
+
+bit_table.cc,105
+bit_table::display(4,24
+bit_table::fill(21,351
+bit_table::~bit_table(28,442
+bit_table::create(37,610
+
+bit_table_cnte.cc,139
+bit_table_cnte::create(4,25
+bit_table_cnte::init_counters(11,134
+bit_table_cnte::display(22,372
+bit_table_cnte::~bit_table_cnte(37,720
+
+bit_table_dynamic.cc,234
+maxpow2(4,75
+bit_table_dynamic::create(12,162
+bit_table_dynamic::display(29,548
+bit_table_dynamic::fill(47,861
+bit_table_dynamic::unset_bit(62,1185
+bit_table_dynamic::count(73,1419
+bit_table_dynamic::~bit_table_dynamic(84,1728
+
+bit_table_dynamic_sum.cc,234
+maxpow2(4,79
+bit_table_dynamic::create(12,166
+bit_table_dynamic::display(29,553
+bit_table_dynamic::fill(47,866
+bit_table_dynamic::unset_bit(62,1190
+bit_table_dynamic::count(73,1424
+bit_table_dynamic::~bit_table_dynamic(84,1733
+
+interval_sieve.cc,57
+void interval_sieve<btable,longint>::eratos(eratos4,77
+
+nth_leftp.cc,23
+long128 nthleftp(5,51
+
+nth_rightp.cc,24
+long128 nthrightp(5,51
+
+primes.cc,1006
+namespace primes{primes3,19
+  long32 presieve_base;primes::presieve_base4,37
+  long32 number_of_presieve_primes;primes::number_of_presieve_primes5,61
+  long32 sum_of_presieve_primes;primes::sum_of_presieve_primes6,97
+  long32 small_primes[primes::small_primes7,130
+  int primes_initialized primes::primes_initialized8,175
+  long* Sp;primes::Sp9,205
+  void init_presieve(primes::init_presieve11,218
+    prime_table<primes::prime_table42,943
+    prime_table<sieve_by_slice<bit_table_cnte, long> > T;primes::T42,943
+      prime(primes::prime45,1013
+      piB(primes::piB48,1073
+      number_of_primes(primes::number_of_primes51,1130
+      max_prime(primes::max_prime54,1208
+      index_of_first_prime_bigger_than(primes::index_of_first_prime_bigger_than57,1285
+      init_prime_table(primes::init_prime_table63,1416
+    void display(primes::display81,2181
+      display_prime_table(primes::display_prime_table90,2622
+  void init_sum_primes(primes::init_sum_primes92,2667
+
+primes6.cc,734
+namespace primes6{primes67,68
+  int* ip_table;primes6::ip_table9,88
+  int nb_primes primes6::nb_primes10,105
+  long32 largest_prime primes6::largest_prime11,126
+  long* Sp;primes6::Sp12,154
+  sieve_slice6<primes6::sieve_slice613,166
+  sieve_slice6<bit_table_cnte, long64> p_tab;primes6::p_tab13,166
+  void init_primes(primes6::init_primes18,263
+  long32 max_prime(primes6::max_prime51,1159
+  long32 number_of_primes(primes6::number_of_primes55,1215
+  long32 piB(primes6::piB59,1276
+  long32 prime(primes6::prime63,1333
+  long32 index_of_first_prime_bigger_than(primes6::index_of_first_prime_bigger_than67,1388
+  void display(primes6::display71,1504
+  void init_sum_primes(primes6::init_sum_primes85,2021
+
+sieve128_pg.cc,62
+void sieve128pg::create(6,52
+void sieve128pg::eratos(10,161
+
+sieve_access_frame.cc,92
+access_frame::access_frame(4,20
+access_frame::create(10,105
+access_frame::display(35,652
+
+sieve_dynamic.cc,457
+const int PK=8,218
+const int FK=9,234
+void Sieve_dynamic::setup(11,251
+void  Sieve_dynamic::fill(47,1040
+void Sieve_dynamic::showindow(78,1697
+void Sieve_dynamic::display(83,1795
+Sieve_dynamic::local_count(150,3159
+void Sieve_dynamic::sieve_by_currentp(163,3349
+void  Sieve_dynamic::forward(179,3784
+void  Sieve_dynamic::unset_bit(187,3909
+void  Sieve_dynamic::count(201,4114
+static longval tmp2;206,4238
+void  Sieve_dynamic::remember(208,4260
+
+sieve_large.cc,71
+sieve_large::sieve_large(6,75
+long128 sieve_large::next_prime(11,259
+
+tst0_prime_generator.cc,15
+int main(7,83
+
+tst_bit_sum_dynamic.cc,15
+int main(4,47
+
+tst_bit_table.cc,15
+int main(4,41
+
+tst_bit_table_cnte.cc,15
+int main(4,46
+
+tst_bit_table_dynamic.cc,15
+int main(4,60
+
+tst_interval_sieve.cc,15
+int main(3,39
+
+tst_nth_leftp.cc,15
+int main(3,19
+
+tst_nth_rightp.cc,15
+int main(3,19
+
+tst_prime_generator.cc,15
+int main(7,83
+
+tst_prime_generator6.cc,15
+int main(7,84
+
+tst_primes.cc,15
+int main(4,49
+
+tst_primes6.cc,15
+int main(7,92
+
+tst_sieve128_pg.cc,15
+int main(5,51
+
+tst_sieve_bit_table.cc,15
+int main(4,55
+
+tst_sieve_bit_table_cnte.cc,15
+int main(4,55
+
+tst_sieve_bit_table_dynamic.cc,15
+int main(4,20
+
+tst_sieve_slice6.cc,15
+int main(5,69
+
+tst_sieve_slice_sum.cc,15
+int main(4,59
+
+tst_sieve_slices.cc,15
+int main(6,62
+
+tst_sieve_slices_sum_dynamic.cc,15
+int main(4,58
+
+tst_sieve_slices_using_pg.cc,15
+int main(3,19

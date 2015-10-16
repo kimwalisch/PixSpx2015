@@ -1,0 +1,12 @@
+#!/bin/bash
+# Show the tst programs
+cnte=0
+for f in tst*
+do
+    if [[  -x $f ]]
+    then
+	((cnte+=1))
+	echo $cnte  $f
+    fi
+done
+ 

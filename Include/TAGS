@@ -1,0 +1,454 @@
+
+Vector.h,1151
+#define Vector_h3,32
+using namespace  std;6,69
+template<class T> class Vector8,92
+  T* elts;Vector::elts11,136
+  long32 dim;Vector::dim12,147
+  Vector(Vector::Vector15,229
+  Vector<T>& operator = Vector::operator =21,437
+  void create(Vector::create29,670
+  Vector(Vector::Vector31,784
+  ~Vector(Vector::~Vector32,808
+  long32 get_dim(Vector::get_dim37,922
+template<class T> void Vector<T>::display(display58,1511
+template<class T> void Vector<T>::display_with_sum(display_with_sum69,1727
+template<class T> void Vector<T>::swap(swap83,2055
+template<class T> void Vector<T>::insertion_sort0(insertion_sort092,2178
+template<class T> void Vector<T>::insertion_sort(insertion_sort112,2508
+template<class T> long32 Vector<T>::partition_wrt(partition_wrt117,2615
+template<class T> long32 Vector<T>::best_index(best_index152,3124
+template<class T> void Vector<T>::quick_sort(quick_sort171,3555
+template<class T> void Vector<T>::set_elts_to(set_elts_to209,4198
+Vector<T>::index_of_first_bigger_than(index_of_first_bigger_than216,4332
+Vector<T>::operator + operator +235,4712
+Vector<T>::operator - operator -250,5024
+
+arith6.h,446
+#define arith_6_h3,33
+struct div_by6{div_by65,52
+  long64 q;6,69
+  long32 r;7,81
+  inline div_by6(8,93
+struct div128_by6{div128_by612,167
+  long128 q;13,187
+  long32  r;14,200
+  inline div128_by6(15,213
+inline long64 inverse6(19,291
+inline long64 next_mult6(29,422
+inline long64 get_integer(34,508
+ inline long offset(43,658
+ inline long128 offset128(56,897
+inline div_by6::div_by6(71,1194
+inline div128_by6::div128_by6(88,1395
+
+arith_64_32.h,322
+#define arith64_32_h2,21
+#define LONG32_MAX 4,43
+#define EXACT_DOUBLE_MAX 5,73
+#define WORDSIZE 6,115
+#define WORDSIZE1 7,136
+#define WORDSIZE2 8,157
+typedef unsigned long ulong64;10,179
+typedef long          long64;11,210
+typedef unsigned long ulong;12,240
+#define LONG32_MAX 16,304
+typedef int  long32;17,334
+
+arith_basic_functions.h,758
+#define arith_basic_functions_h3,47
+inline int number_bit(8,146
+template<class longint> longint prev_mult(32,711
+template<class longint> longint next_mult(36,806
+gcd32(42,961
+lcm32(54,1097
+phi_euler32(61,1186
+ldiv32::ldiv32(92,1560
+ldiv64::ldiv64(99,1630
+ldiv64::ldiv64(113,1862
+ldiv128::ldiv128(131,2061
+ldiv128::ldiv128(157,2312
+ceil_div64(172,2535
+gcdex32::gcdex32(181,2671
+invmod32(201,2978
+mod32(211,3129
+mod64(217,3199
+compare_long32(224,3256
+compare_abs_long32(231,3358
+max32(240,3533
+max_double(247,3613
+max64(254,3698
+min32(261,3778
+min64(268,3858
+abs32(275,3938
+inline long64 atolong64(282,4026
+atolong64(295,4232
+arith_mod32::get_index(302,4295
+arith_mod32::get_mulinv(308,4377
+arith_mod32::get_mulinv_index(315,4546
+
+arith_long128.h,128
+#define arith_long128_h3,39
+using namespace std;8,136
+typedef __uint128_t uint128;10,158
+typedef __int128_t  long128;11,187
+
+arith_structured_types.h,1136
+#define arith_structured_types_h3,48
+struct ldiv32 7,120
+  long32 q,8,137
+  long32 q, r;8,137
+  inline ldiv32(9,153
+struct ldiv64 12,194
+  long64 q,13,211
+  long64 q, r;13,211
+  inline ldiv64(14,227
+  inline ldiv64(15,264
+class ldiv128 18,336
+  long128 q;ldiv128::q20,361
+  long64  r;ldiv128::r21,374
+struct gcdex32 26,502
+  long32 u,gcdex32::u27,519
+  long32 u, v,gcdex32::v27,519
+  long32 u, v, d;gcdex32::d27,519
+class table_invmod32 31,579
+  Vector<long32> inverses;table_invmod32::inverses33,611
+  long32 N;table_invmod32::N35,649
+  table_invmod32(table_invmod32::table_invmod3237,669
+  virtual ~table_invmod32(table_invmod32::~table_invmod3240,745
+  inline long32 get_inverse(table_invmod32::get_inverse41,800
+class arith_mod32:arith_mod3244,868
+  Vector<Vector<long32> > invmul;arith_mod32::invmul48,923
+  Vector<Vector<long32> > invmul_index;arith_mod32::invmul_index49,957
+  Vector<long32> index;arith_mod32::index50,997
+  Vector<long32> residue;arith_mod32::residue51,1021
+  arith_mod32(arith_mod32::arith_mod3253,1055
+  inline long32 get_residue(arith_mod32::get_residue59,1267
+
+bit_sum_dynamic.h,308
+#define bit_sum_dynamic_h2,26
+class bit_sum_dynamic:bit_sum_dynamic5,71
+  long32 BASE;bit_sum_dynamic::BASE8,127
+  long64* partial_sums_array;bit_sum_dynamic::partial_sums_array9,142
+  long32 number_of_sums;bit_sum_dynamic::number_of_sums10,172
+  long64 last_cnte;bit_sum_dynamic::last_cnte11,197
+
+bit_table.h,1120
+#define bit_table_h3,35
+enum sieve_type{sieve_type6,101
+enum sieve_type{NO_SIEVE,NO_SIEVE6,101
+enum sieve_type{NO_SIEVE, AUTO_SIEVE}AUTO_SIEVE6,101
+class bit_table 8,141
+  bit_table(bit_table::bit_table11,188
+  bit_table(bit_table::bit_table12,222
+  long bit_size;bit_table::bit_size14,288
+  inline long get_bit_size(bit_table::get_bit_size15,306
+  virtual int init_counters(bit_table::init_counters17,397
+  long count(bit_table::count18,440
+  ulong* words_array;bit_table::words_array23,572
+  inline ulong get_bit_mask(bit_table::get_bit_mask24,594
+  long64 last_cnte;bit_table::last_cnte28,695
+  long word_size;bit_table::word_size29,715
+  ulong get_word(bit_table::get_word30,733
+  inline ulong get_bit_mask2(bit_table::get_bit_mask232,809
+   inline int number_bit_at_right(bit_table::number_bit_at_right34,899
+  inline int get_word_index(bit_table::get_word_index36,1010
+  inline long get_word_size(bit_table::get_word_size38,1083
+  inline ulong get_nth_word(bit_table::get_nth_word40,1144
+bit_table::unset_bit(47,1277
+bit_table::set_bit(60,1534
+bit_table::get_bit(73,1787
+
+bit_table_cnte.h,329
+#define bit_table_cnte_h2,25
+class bit_table_cnte:bit_table_cnte5,71
+ bit_table_cnte(bit_table_cnte::bit_table_cnte8,120
+  bit_table_cnte(bit_table_cnte::bit_table_cnte13,259
+  long count(bit_table_cnte::count15,314
+  long* counter_array;bit_table_cnte::counter_array21,454
+protected:bit_table_cnte::protected22,477
+
+bit_table_dynamic.h,512
+#define bit_table_dynamic_h2,28
+class bit_table_dynamic:bit_table_dynamic4,57
+  long32 BASE;bit_table_dynamic::BASE7,110
+  long32* partial_sums_array;bit_table_dynamic::partial_sums_array8,125
+  long32 number_of_sums;bit_table_dynamic::number_of_sums9,155
+  long64 last_cnte;bit_table_dynamic::last_cnte10,180
+  bit_table_dynamic(bit_table_dynamic::bit_table_dynamic19,377
+  bit_table_dynamic(bit_table_dynamic::bit_table_dynamic20,403
+  int init_counters(bit_table_dynamic::init_counters23,454
+
+index_first_bg.h,75
+#define index_first_bg_h3,40
+template<class T> long32 first_bg_than(5,66
+
+interval_sieve.h,379
+#define interval_sieve_h2,25
+template<class btable, typename longint> class interval_sieve:interval_sieve5,69
+  longint first;interval_sieve::first8,183
+  longint last;interval_sieve::last9,200
+  long first_index;interval_sieve::first_index14,315
+  long last_index;interval_sieve::last_index15,372
+interval_sieve<btable,longint>::interval_sieve(interval_sieve22,475
+
+meissel_global.h,25
+#define pi_global_h3,35
+
+mylib.h,47
+#define mylib_h2,16
+inline void error(12,175
+
+prime_generator.h,298
+#define prime_generator_h3,41
+class prime_generator:prime_generator7,114
+  prime_generator(prime_generator::prime_generator10,189
+  prime_generator(prime_generator::prime_generator12,282
+  long64 next_prime(prime_generator::next_prime16,509
+  void display(prime_generator::display18,594
+
+prime_generator6.h,309
+#define prime_generator6_h3,42
+class prime_generator6:prime_generator67,114
+  prime_generator6(prime_generator6::prime_generator610,188
+  prime_generator6(prime_generator6::prime_generator612,254
+  long64 next_prime(prime_generator6::next_prime16,454
+  void display(prime_generator6::display18,537
+
+prime_tables.h,895
+#define prime_tables_h3,39
+template<class sieve_class> class prime_table 5,63
+  Vector<long32> p_table;prime_table::p_table7,132
+  prime_table(prime_table::prime_table10,191
+  long32 prime(prime_table::prime14,318
+  long32 get_number_of_primes(prime_table::get_number_of_primes16,383
+  long32 last_prime(prime_table::last_prime19,455
+  long32 max_prime(prime_table::max_prime22,525
+  long32 first_prime(prime_table::first_prime25,595
+template<class sieve_class> prime_table<sieve_class>::prime_table(prime_table33,702
+template<class sieve_class> inline long32 prime_table<sieve_class>::piB(piB38,815
+template<class sieve_class> void prime_table<sieve_class>::create(create49,1243
+template<class sieve_class> void prime_table<sieve_class>::display(display97,2698
+long32 prime_table<sieve_class>::index_of_first_prime_bigger_than(index_of_first_prime_bigger_than105,2924
+
+primes.h,22
+#define primes_h3,32
+
+sieve128_pg.h,441
+#define sieve128_pg_h3,37
+typedef sieve_by_slice<bit_table,bit_table7,103
+typedef sieve_by_slice<bit_table, long128> sieve_128_btable;7,103
+class sieve128pg:sieve128pg9,165
+  long128 startx;sieve128pg::startx12,218
+  long64 size;sieve128pg::size13,236
+  sieve128pg(sieve128pg::sieve128pg14,251
+  long128 pg_start(sieve128pg::pg_start17,340
+  long128 pg_end(sieve128pg::pg_end18,384
+  void display(sieve128pg::display20,431
+
+sieve_access_frame.h,709
+#define sieve_access_frame_h3,44
+class access_frame 8,144
+  Vector<int> classes;access_frame::classes10,174
+  Vector<int> index;access_frame::index11,197
+  int period;access_frame::period14,227
+  int number_of_classes;access_frame::number_of_classes15,241
+  virtual ~access_frame(access_frame::~access_frame16,266
+  access_frame(access_frame::access_frame22,516
+  inline int get_period(access_frame::get_period24,573
+  inline int get_number_of_classes(access_frame::get_number_of_classes25,624
+  inline int get_class(access_frame::get_class26,696
+access_frame::lower_index64(49,1114
+access_frame::lower_index128(66,1420
+access_frame::sum128_6(80,1692
+access_frame::get_integer(96,1925
+
+sieve_dyn_methodes.h,629
+Sieve_dynamic<LONGVAL, MEDVAL>::setup(setup10,250
+Sieve_dynamic<LONGVAL, MEDVAL>::fill(fill48,1096
+Sieve_dynamic<LONGVAL, MEDVAL>::showindow(showindow81,1808
+Sieve_dynamic<LONGVAL, MEDVAL>::display(display88,1962
+Sieve_dynamic<LONGVAL, MEDVAL>::local_count(local_count155,3376
+Sieve_dynamic<LONGVAL, MEDVAL>::sieve_by_currentp(sieve_by_currentp170,3626
+Sieve_dynamic<LONGVAL, MEDVAL>::forward(forward187,4116
+Sieve_dynamic<LONGVAL, MEDVAL>::unset_bit(unset_bit197,4296
+Sieve_dynamic<LONGVAL, MEDVAL>::count(count213,4557
+static longval tmp2;218,4692
+Sieve_dynamic<LONGVAL, MEDVAL>::remember(remember222,4758
+
+sieve_dynamic.h,1062
+#define sieve_dynamic4,55
+#define DYNAMIC_VERBOSE 7,115
+using namespace std;9,142
+class Sieve_dynamic65,1911
+  Sieve_dynamic(Sieve_dynamic::Sieve_dynamic68,1942
+  inline int done(Sieve_dynamic::done72,2039
+  int window_sieved(Sieve_dynamic::window_sieved73,2079
+  int curp;Sieve_dynamic::curp78,2215
+  int64 A;Sieve_dynamic::A80,2358
+  int64 B;Sieve_dynamic::B81,2411
+  int64 END;Sieve_dynamic::END82,2464
+  int is_set_bit(Sieve_dynamic::is_set_bit86,2522
+  inline int index(Sieve_dynamic::index87,2587
+  inline int64 image(Sieve_dynamic::image88,2640
+  int currentp;Sieve_dynamic::currentp89,2700
+  int curp_index;Sieve_dynamic::curp_index90,2716
+  int SIZE;Sieve_dynamic::SIZE92,2743
+  int BASE;Sieve_dynamic::BASE93,2755
+  int BSIZE;Sieve_dynamic::BSIZE94,2767
+  int max_prime;Sieve_dynamic::max_prime95,2840
+  int nb_primes;Sieve_dynamic::nb_primes96,2857
+  MEDVAL* local_sum;Sieve_dynamic::local_sum97,2874
+  LONGVAL* previous_total;Sieve_dynamic::previous_total98,2895
+  longint tmp1;Sieve_dynamic::tmp1103,3005
+
+sieve_large.h,63
+#define sieve_large_h3,37
+class sieve_large:sieve_large5,60
+
+sieve_mod_6.h,693
+#define sieve_mod_6_h3,37
+template<class btable, class longint> class sieve_slice6:sieve_slice68,116
+    sieve_type sieve_t;sieve_slice6::sieve_t12,208
+    longint w_first;sieve_slice6::w_first14,242
+    longint w_last;sieve_slice6::w_last15,263
+    long64  w_size;sieve_slice6::w_size16,283
+    longint last_total;sieve_slice6::last_total18,308
+    long64 k0;sieve_slice6::k020,333
+    long64 index_first_prime;sieve_slice6::index_first_prime22,372
+    long64 index_last_prime;sieve_slice6::index_last_prime23,402
+    sieve_slice6(sieve_slice6::sieve_slice624,431
+    sieve_slice6(sieve_slice6::sieve_slice625,454
+    ~sieve_slice6(sieve_slice6::~sieve_slice651,1265
+
+sieve_slice6.h,800
+#define sieve_slice_h3,37
+template<class btable, class longint> class sieve_slice6:sieve_slice68,116
+    sieve_type sieve_t;sieve_slice6::sieve_t12,208
+    longint window_first;sieve_slice6::window_first14,242
+    longint window_last;sieve_slice6::window_last15,268
+    longint get_next_window_start(sieve_slice6::get_next_window_start16,293
+    longint last_total;sieve_slice6::last_total17,373
+    long64 window_size;sieve_slice6::window_size18,397
+    long64 k0;sieve_slice6::k019,421
+    long64 index_first_prime;sieve_slice6::index_first_prime21,460
+    long64 index_last_prime;sieve_slice6::index_last_prime22,490
+    sieve_slice6(sieve_slice6::sieve_slice623,519
+    sieve_slice6(sieve_slice6::sieve_slice624,542
+    ~sieve_slice6(sieve_slice6::~sieve_slice650,1353
+
+sieve_slices.h,1370
+#define sieve_by_slice_h3,40
+template<class btable, class longint> class sieve_by_slice:sieve_by_slice9,134
+    sieve_type sieve_t;sieve_by_slice::sieve_t14,251
+    long32 l;sieve_by_slice::l15,275
+    long32 k;sieve_by_slice::k16,289
+    table_invmod32 table_inverses;sieve_by_slice::table_inverses17,303
+    longint last_total;sieve_by_slice::last_total18,338
+    longint window_start;sieve_by_slice::window_start20,374
+    longint window_end;sieve_by_slice::window_end21,400
+    long64 window_size;sieve_by_slice::window_size22,424
+    long64 index_first_prime;sieve_by_slice::index_first_prime24,453
+    long64 index_last_prime;sieve_by_slice::index_last_prime25,483
+    sieve_by_slice(sieve_by_slice::sieve_by_slice27,612
+    sieve_by_slice(sieve_by_slice::sieve_by_slice28,637
+    sieve_by_slice(sieve_by_slice::sieve_by_slice31,771
+    ~sieve_by_slice(sieve_by_slice::~sieve_by_slice36,1003
+    long64 index(sieve_by_slice::index38,1030
+    long64 index(sieve_by_slice::index39,1112
+    int get_window_size(sieve_by_slice::get_window_size42,1255
+    longint get_window_start(sieve_by_slice::get_window_start43,1309
+    longint get_window_end(sieve_by_slice::get_window_end44,1369
+    longint get_next_window_start(sieve_by_slice::get_next_window_start45,1448
+    longint get_integer(sieve_by_slice::get_integer46,1528
+
+sieve_slices_sum6.h,225
+#define sieve_slices_sum6_h3,46
+class sieve_slice_sum6:sieve_slice_sum65,75
+  long64* sums;sieve_slice_sum6::sums7,150
+  long128 last_total;sieve_slice_sum6::last_total8,166
+  long128 sum(sieve_slice_sum6::sum11,247
+
+sieve_sum_dynamic.h,240
+#define bit_sum_dynamic_h3,41
+template <class btable, class longint> class sieve_sum_dynamic:sieve_sum_dynamic6,86
+  long32 BASE;sieve_sum_dynamic::BASE11,205
+  longint* partial_sums_array;sieve_sum_dynamic::partial_sums_array12,220
+
+squarefree_table.h,35
+#define pi_squarefree_table_h3,45
+
+interval_sieve.hpp,118
+void interval_sieve<btable,longint>::eratos(eratos4,77
+void interval_sieve<btable,longint>::display(display10,209
+
+sieve_dynamic.hpp,628
+Sieve_dynamic<LONGVAL, MEDVAL>::setup(setup10,250
+Sieve_dynamic<LONGVAL, MEDVAL>::fill(fill47,996
+Sieve_dynamic<LONGVAL, MEDVAL>::showindow(showindow80,1708
+Sieve_dynamic<LONGVAL, MEDVAL>::display(display87,1862
+Sieve_dynamic<LONGVAL, MEDVAL>::local_count(local_count154,3276
+Sieve_dynamic<LONGVAL, MEDVAL>::sieve_by_currentp(sieve_by_currentp169,3526
+Sieve_dynamic<LONGVAL, MEDVAL>::forward(forward186,4016
+Sieve_dynamic<LONGVAL, MEDVAL>::unset_bit(unset_bit196,4196
+Sieve_dynamic<LONGVAL, MEDVAL>::count(count212,4457
+static longval tmp2;217,4592
+Sieve_dynamic<LONGVAL, MEDVAL>::remember(remember221,4658
+
+sieve_mod_6.hpp,1099
+#define sieve_mod_6_h3,37
+sieve_slice6<btable, longint>::create(create10,170
+sieve_slice6<btable, longint>::display(display41,862
+sieve_slice6<btable, longint>::sieve_by(sieve_by64,1556
+sieve_slice6<btable, longint>::eratosthenes(eratosthenes115,2854
+sieve_slice6<btable, longint>::shift_window_forward(shift_window_forward170,4343
+sieve_slice6<btable, longint>::count(count197,5079
+sieve_slice6<btable, longint>::shift_window_backward(shift_window_backward212,5360
+sieve_slice6<btable, longint>::display_counts(display_counts226,5661
+sieve_slice6<btable, longint>::get_first_prime(get_first_prime238,5949
+sieve_slice6<btable, longint>::get_next_prime(get_next_prime253,6276
+sieve_slice6<btable, longint>::get_next_prime_without_shifting(get_next_prime_without_shifting275,6904
+sieve_slice6<btable, longint>::get_previous_prime(get_previous_prime289,7212
+sieve_slice6<btable, longint>::get_previous_prime(get_previous_prime307,7568
+sieve_slice6<btable, longint>::init_primes(init_primes314,7759
+sieve_slice6<btable, longint>::belong_to_window(belong_to_window335,8198
+
+sieve_slice6.hpp,1105
+#define sieve_by_slice6_hpp3,43
+sieve_slice6<btable, longint>::create(create10,182
+sieve_slice6<btable, longint>::display(display37,867
+sieve_slice6<btable, longint>::sieve_by(sieve_by60,1561
+sieve_slice6<btable, longint>::eratosthenes(eratosthenes111,2859
+sieve_slice6<btable, longint>::shift_window_forward(shift_window_forward166,4348
+sieve_slice6<btable, longint>::count(count193,5084
+sieve_slice6<btable, longint>::shift_window_backward(shift_window_backward208,5365
+sieve_slice6<btable, longint>::display_counts(display_counts222,5666
+sieve_slice6<btable, longint>::get_first_prime(get_first_prime234,5954
+sieve_slice6<btable, longint>::get_next_prime(get_next_prime249,6281
+sieve_slice6<btable, longint>::get_next_prime_without_shifting(get_next_prime_without_shifting271,6909
+sieve_slice6<btable, longint>::get_previous_prime(get_previous_prime285,7217
+sieve_slice6<btable, longint>::get_previous_prime(get_previous_prime303,7573
+sieve_slice6<btable, longint>::init_primes(init_primes310,7764
+sieve_slice6<btable, longint>::belong_to_window(belong_to_window331,8203
+
+sieve_slices.hpp,1134
+#define sieve_by_slice_hpp3,42
+sieve_by_slice<btable, longint>::create(create9,179
+sieve_by_slice<btable, longint>::sieve_by(sieve_by35,1074
+sieve_by_slice<btable, longint>::shift_window_forward(shift_window_forward85,2401
+sieve_by_slice<btable, longint>::shift_window_backward(shift_window_backward110,3103
+sieve_by_slice<btable, longint>::display(display123,3417
+sieve_by_slice<btable, longint>::display_counts(display_counts143,4030
+sieve_by_slice<btable, longint>::eratosthenes(eratosthenes154,4317
+sieve_by_slice<btable, longint>::get_first_prime(get_first_prime206,5955
+sieve_by_slice<btable, longint>::get_next_prime(get_next_prime221,6284
+sieve_by_slice<btable, longint>::get_next_prime_without_shifting(get_next_prime_without_shifting242,6808
+sieve_by_slice<btable, longint>::get_previous_prime(get_previous_prime256,7118
+sieve_by_slice<btable, longint>::get_previous_prime(get_previous_prime274,7461
+sieve_by_slice<btable, longint>::init_primes(init_primes281,7666
+sieve_by_slice<btable, longint>::count(count287,7830
+sieve_by_slice<btable, longint>::belong_to_window(belong_to_window300,8121
+
+sieve_sum_dynamic.hpp,144
+sieve_sum_dynamic<btable, longint>::sieve_sum_dynamic(sieve_sum_dynamic4,70
+void sieve_sum_dynamic<btable, longint>::display(display39,1075
