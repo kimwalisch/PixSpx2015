@@ -5,6 +5,7 @@
 #include<limits.h>
 #include<cstdlib>
 #include<time.h>
+#include<algorithm>
 
 #include"arith_long128.h"
 #include"arith_64_32.h"
