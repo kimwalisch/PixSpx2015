@@ -67,11 +67,11 @@ namespace primes6{
     }
     p_tab.init_counters();
     long cnte = 2+p_tab.count(upto);
+    ip_table = new int[cnte+2];
     ip_table[0] = 1;
     ip_table[1] = 2;
     ip_table[2] = 3;
     int j=2;
-    ip_table = new int[cnte+2];
     for (int i=0; i < p_tab.get_bit_size(); i++) {
       if (p_tab.get_bit(i)) 
 	ip_table[++j]=get_integer(i);
