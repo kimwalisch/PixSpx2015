@@ -46,9 +46,9 @@ namespace primes6{
     largest_prime = ip_table[cnte];
     ip_table[cnte+1] = LONG32_MAX;
   }
+  
   void init_all_primes(long upto) {
     long true_bound = next_mult6(upto);
-    cout << "init_primes upto= " << upto << "   true_bound= " << true_bound << endl;
     long size = true_bound;
   
     p_tab.create(size,0, NO_SIEVE);
