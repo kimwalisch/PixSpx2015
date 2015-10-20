@@ -63,7 +63,6 @@ sieve_slice6<btable, longint>::sieve_by(long64 p)
 
   
   int r  = p % 6;
-  long q = p/6;
   longint start;
   long64 index;
   
