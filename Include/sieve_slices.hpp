@@ -278,8 +278,12 @@ sieve_by_slice<btable, longint>::get_previous_prime(longint x)
 
 template<class btable, class longint> void
 sieve_by_slice<btable, longint>::init_primes(longint x)
-{
-  index_first_prime = 1+lower_index64(x - window_start);
+{ 
+  // index_first_prime = 1+lower_index64(x - window_start); Remplacé le 13/11/2015 par
+  index_first_prime = lower_index64(x - window_start);
+  if (get_integer(index_first_prime) == x) {
+    index_first_prime -= 1;
+  }
 }
 
 template<class btable, class longint> longint

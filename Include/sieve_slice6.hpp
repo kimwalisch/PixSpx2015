@@ -310,7 +310,11 @@ sieve_slice6<btable, longint>::get_previous_prime(longint x)
 template<class btable, class longint> void
 sieve_slice6<btable, longint>::init_primes(longint x)
 {
-  index_first_prime = 1+offset(x - window_first);
+  // index_first_prime = 1+offset(x - window_first); remplacé par 
+  index_first_prime = offset(x - window_first);
+  if (get_integer(index_first_prime) == x) {
+    index_first_prime -= 1;
+  }
 }
 
 /*

@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 
   sieve_by_slice<bit_table, long128> sieve_table(2,1,1000,a,6,AUTO_SIEVE);
 
-  sieve_table.display(10);
+  sieve_table.display();
 
   cout << "ok\n";
   return 0;

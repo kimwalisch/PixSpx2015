@@ -20,6 +20,27 @@ index_of_first_bigger_than(vector<T> vect, T v, int (*comp)(T,T))
   return last;
 }
 
+template<class truc> int
+index_of_first_elt_bigger_than(truc *T, truc v, int size, int (*comp)(long,truc))
+{
+  long32 first = 0;
+  long32 last  = size;
+
+  if (comp(v, T[first]) < 0)
+    return first;
+
+  while (first+1 < last)
+    {
+      long32 middle = first + (last-first)/2;  
+      if (comp(T[middle], v) > 0)
+        last = middle;
+      else first = middle;     
+    }
+  return last;
+}
+
+
+
 template<class T> void displayv(T vect, int w=2)
 {
   for (long32 i = 0; i < vect.size(); i++ )
