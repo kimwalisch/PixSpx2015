@@ -19,7 +19,7 @@ long128 sumW1_W2()
   //  These values will be computed using a sieve_by_slices
   
   sieve_slice_sum<bit_table_cnte,long64>  extra_primes(window_size, 0);
-  //  extra_primes.create(2, 1, window_size, 0, primes::presieve_base);
+  //  extra_primes.create(2, 1, window_size, 0, presieved_primes::presieve_base);
   
 #ifdef DEBUG_W1W2	 
   cout << "W1 W2 extra_primes-created " << endl;
@@ -32,7 +32,7 @@ long128 sumW1_W2()
       long32 aux_ip = min32(meissel::ifgp-1, meissel::pi_x_y2);
       for (long32 ip = 1+meissel::pi_sqr4_x; ip < aux_ip; ip++)
 	{
-	  long   p = primes::prime(ip);
+	  long   p = presieved_primes::prime(ip);
 	  //cout << "p= " << p << endl;
 	  long128 xp = meissel::x/p;
 	  long64  last_q = (start)? xp/start : xp;
@@ -40,21 +40,21 @@ long128 sumW1_W2()
 	  if (last_q  > meissel::y) last_q = meissel::y;
 	  if (first_q > meissel::y) continue;
 
-	  long32 first_iq = max32(primes::piB((long32)first_q), ip+1);
-	  long32 last_iq  = primes::piB((long32)last_q);
+	  long32 first_iq = max32(presieved_primes::piB((long32)first_q), ip+1);
+	  long32 last_iq  = presieved_primes::piB((long32)last_q);
 
 	  for (long32 iq = first_iq; iq <= last_iq; iq++) {
-	    long q=primes::prime(iq);
+	    long q=presieved_primes::prime(iq);
 	    //cout << "q= " << q << endl;
 	    sum_W1 += p*q*extra_primes.sum((long64)(xp/q));
 	  }
 	}
 
       aux_ip = max32(1+meissel::pi_sqr4_x, meissel::ifgp);
-      //cout << "aux_ip= " << aux_ip << "  prime(aux_ip)= " << primes::prime(aux_ip) << endl;
+      //cout << "aux_ip= " << aux_ip << "  prime(aux_ip)= " << presieved_primes::prime(aux_ip) << endl;
       for (long32 ip = aux_ip; ip <= meissel::pi_x_y2; ip++)
 	{
-	  long     p = primes::prime(ip);
+	  long     p = presieved_primes::prime(ip);
 	  double  xp = meissel::x/p;
 	  //cout << "p= " << p << "    xp= " << xp << endl;
 	  double last_q = (start)? xp/start : xp;
@@ -63,10 +63,10 @@ long128 sumW1_W2()
 
 	  if (last_q  > meissel::y) last_q = meissel::y;
 
-	  long64 first_iq = max32(1+primes::piB((long32)first_q), ip+1);
-	  long64 last_iq  = primes::piB((long32)last_q);
+	  long64 first_iq = max32(1+presieved_primes::piB((long32)first_q), ip+1);
+	  long64 last_iq  = presieved_primes::piB((long32)last_q);
 	  for (long32 iq = first_iq; iq <= last_iq; iq++) {
-	    long q=primes::prime(iq);
+	    long q=presieved_primes::prime(iq);
 	    sum_W1 += p*q*extra_primes.sum((long64)(xp/q));
 	  }
 	}
@@ -77,7 +77,7 @@ long128 sumW1_W2()
       aux_ip = min32(meissel::ifgp-1, meissel::pi_sqr2_x_y);
       for (long32 ip = start_ip; ip <= aux_ip; ip++)
 	{
-	  long    p = primes::prime(ip);
+	  long    p = presieved_primes::prime(ip);
 	  long128 xp = meissel::x/p;
 	  long64 last_q  = (start)? xp/start : xp;
 	  long64 first_q = xp/(end+1); 
@@ -86,10 +86,10 @@ long128 sumW1_W2()
 	  if (last_q  > max_q) last_q = max_q;
 
 	  
-	  long64 first_iq = max32(primes::piB((long32)first_q), ip+1);
-	  long64 last_iq  = primes::piB((long32)last_q);
+	  long64 first_iq = max32(presieved_primes::piB((long32)first_q), ip+1);
+	  long64 last_iq  = presieved_primes::piB((long32)last_q);
 	  for (long32 iq = first_iq; iq <= last_iq; iq++) {
-	    long64 q=primes::prime(iq);
+	    long64 q=presieved_primes::prime(iq);
 	    sum_W2 +=  p*q*extra_primes.sum((long64)(xp/q));
 	  }
 	}
@@ -99,7 +99,7 @@ long128 sumW1_W2()
       int lastip=meissel::pi_sqr2_x_y;
       for (long32 ip = aux_ip; ip <= meissel::pi_sqr2_x_y; ip++)
 	{
-	  long32   p = primes::prime(ip);
+	  long32   p = presieved_primes::prime(ip);
 	  double  xp = meissel::x/p;
 	  double last_q  = (start)? xp/start : xp;
 	  double first_q = xp/(end+1);
@@ -107,10 +107,10 @@ long128 sumW1_W2()
 	  if (last_q  > max_q) last_q = max_q;
 	  if (first_q > max_q) continue;
 	  
-	  long64 first_iq = max32(1+primes::piB((long32)first_q), ip+1);
-	  long64 last_iq  = primes::piB((long32)last_q);
+	  long64 first_iq = max32(1+presieved_primes::piB((long32)first_q), ip+1);
+	  long64 last_iq  = presieved_primes::piB((long32)last_q);
 	  for (long32 iq = first_iq; iq <= last_iq; iq++) {
-	    long64 q=primes::prime(iq);
+	    long64 q=presieved_primes::prime(iq);
 	    sum_W2 += p*q*extra_primes.sum((long64)(xp/q));
 	  }
 	}

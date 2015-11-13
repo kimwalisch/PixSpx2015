@@ -8,9 +8,9 @@ long128 sumU()
   second_part = (long128)0;
   for (long32 ip = 1+meissel::pi_sqr2_x_y; ip <= meissel::pi_sqr3_x; ip++)
     {
-      //cout << "p= " << primes::prime(ip) << endl;
-      long64 pp = (long64)primes::prime(ip) * primes::prime(ip);
-      second_part += primes::piB((long32)(meissel::x/pp));
+      //cout << "p= " << presieved_primes::prime(ip) << endl;
+      long64 pp = (long64)presieved_primes::prime(ip) * presieved_primes::prime(ip);
+      second_part += presieved_primes::piB((long32)(meissel::x/pp));
     }
   // cout << "second_part= " << second_part << endl;
   if (meissel::verbose)

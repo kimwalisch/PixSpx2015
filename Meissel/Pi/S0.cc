@@ -10,7 +10,7 @@ long128 sumS0()
   cout << "In S0\n";
 #endif
 
-  accessf.create(primes::presieve_base, 2, 1);
+  accessf.create(presieved_primes::presieve_base, 2, 1);
   long128 res = accessf.lower_index128(meissel::x);
 
 #ifdef DEBUG_S0
@@ -44,11 +44,11 @@ long128 sumS0()
 
   for  ( ; b_prime <= meissel::pi_y; b_prime++)
     { 
-      long128 xm = meissel::x/primes::prime(b_prime);
+      long128 xm = meissel::x/presieved_primes::prime(b_prime);
       meissel::count_unary_terms++;
       res -= accessf.lower_index128(xm);
 #ifdef DEBUG_S0
-      cout <<  primes::prime(b_prime) << "\n";
+      cout <<  presieved_primes::prime(b_prime) << "\n";
       cout << " lower_index(xm) = " << accessf.lower_index128(xm) << "\n";
       cout << "  count_unary_terms= " <<       meissel::count_unary_terms++ << endl;
 #endif

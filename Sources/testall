@@ -7,7 +7,7 @@ do
 	STATUS="$?"
 	if [ "$STATUS" -ne 0 ]
 	then
-	    echo "Test de $file echoue"
+	    echo "Test de $file echoue !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	else
 	    echo "Test de $file ok"
 	fi

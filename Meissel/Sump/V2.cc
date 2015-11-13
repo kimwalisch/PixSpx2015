@@ -7,7 +7,7 @@ long128 sumW5();
 long128 sumV2() {
   long128 somme_V2= 0;
   somme_V2 += sumW1_W2();
-  primes::init_sum_primes();
+  presieved_primes::init_sum_primes();
   somme_V2 += sumW3();
   somme_V2 += sumW4();
   cout << "Before W5\n";

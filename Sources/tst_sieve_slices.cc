@@ -1,7 +1,7 @@
 #include<mylib.h>
 
 #include<mylib.h>
-using namespace primes;
+using namespace presieved_primes;
 
 int main(int argc, char* argv[]) {
   long x = (argc>=2)? atol(argv[1]) : 1000000;
@@ -9,10 +9,10 @@ int main(int argc, char* argv[]) {
 
   cout << "x= " << x << endl;
   cout << "Table des premiers jusqu'à 100000"  << endl;
-  primes::init_prime_table(100000);
-  //primes::display();
+  presieved_primes::init_prime_table(100000);
+  //presieved_primes::display();
   
-  sieve_by_slice<bit_table_cnte, long64> sieve(2,1,wsize,0, primes::presieve_base, AUTO_SIEVE);
+  sieve_by_slice<bit_table_cnte, long64> sieve(2,1,wsize,0, presieved_primes::presieve_base, AUTO_SIEVE);
 
   
   long res= sieve.count(x);

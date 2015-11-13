@@ -3,8 +3,7 @@
 
 using namespace std;
 
-
-namespace primes6{
+namespace primes_6{
 
   int* ip_table;
   int nb_primes = 0;
@@ -12,7 +11,6 @@ namespace primes6{
   long* Sp;
   sieve_slice6<bit_table_cnte, long64> p_tab;
   
-
   
   void init_primes(long upto) {
     long true_bound = next_mult6(upto);
@@ -47,40 +45,6 @@ namespace primes6{
     ip_table[cnte+1] = LONG32_MAX;
   }
   
-  void init_all_primes(long upto) {
-    long true_bound = next_mult6(upto);
-    long size = true_bound;
-  
-    p_tab.create(size,0, NO_SIEVE);
-    p_tab.unset_bit(0);
-    p_tab.unset_bit(1);
-    
-    int p  = 5;
-    while (p <= upto/p)  {
-      p_tab.sieve_by(p);
-      //p_tab.set_long(p); // Reinstaller le premier supprime par le crible
-      p_tab.set_bit(offset(p));
-      int ip=1+offset(p);
-      while (! p_tab.get_bit(ip))
-	ip++;
-      p=get_integer(ip);
-    }
-    p_tab.init_counters();
-    long cnte = 2+p_tab.count(upto);
-    ip_table = new int[cnte+2];
-    ip_table[0] = 1;
-    ip_table[1] = 2;
-    ip_table[2] = 3;
-    int j=2;
-    for (int i=0; i < p_tab.get_bit_size(); i++) {
-      if (p_tab.get_bit(i)) 
-	ip_table[++j]=get_integer(i);
-    }
-    nb_primes = cnte;
-    largest_prime = ip_table[cnte];
-    ip_table[cnte+1] = LONG32_MAX;
-  }
-
   long32 max_prime() {
     return largest_prime;
     }

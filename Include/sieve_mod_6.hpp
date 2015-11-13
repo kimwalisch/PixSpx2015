@@ -19,7 +19,7 @@ sieve_mod_6<btable, longint>::set_next_i1_i5()
   next_i5.push_back(0);
   int ip=1;
   cout  << "In set_netx offset_w_first= " << offset(w_first) << endl;
-  for (int p= primes6::prime(ip);  p <= bound_p ; p= primes6::prime(++ip)) {
+  for (int p= primes_6::prime(ip);  p <= bound_p ; p= primes_6::prime(++ip)) {
     long q= p /6;
     //cout << "p= " << p << " p % 6 " << p% 6 <<  "  q= " << q <<  " offset(p)= " << offset(p) << " image " << image(offset(p)) <<  endl;
     long offset_1p = offset(p);
@@ -49,7 +49,7 @@ sieve_mod_6<btable, longint>::set_next_i1_i5()
       }
   }
   max_ip = ip-1;
-  cout << "max_ip= " << max_ip << "    prime(max_ip)= " << primes6::prime(max_ip) << endl;
+  cout << "max_ip= " << max_ip << "    prime(max_ip)= " << primes_6::prime(max_ip) << endl;
 
 
 }
@@ -135,7 +135,7 @@ sieve_mod_6<btable, longint>::display_starts()
 {
   cout << "Starts are\n";
   for (int ip=1; ip <= max_ip; ip++) {
-    cout << "ip= " << ip << "    p= "  << primes6::prime(ip) <<  "   i1 = " << next_i1[ip] <<  "   i5 = " << next_i5[ip] << endl;
+    cout << "ip= " << ip << "    p= "  << primes_6::prime(ip) <<  "   i1 = " << next_i1[ip] <<  "   i5 = " << next_i5[ip] << endl;
   }
 }
 
@@ -153,7 +153,7 @@ sieve_mod_6<btable, longint>::eratosthenes()
     //display(low, high);
     int ip=1;
     for (int ip=1 ; ip <= max_ip; ip++) {
-      int p=primes6::prime(ip);
+      int p=primes_6::prime(ip);
       long inc=p+p;
       //cout << "Crible par p= " << p << " i1= " << next_i1[ip] <<    "    i5 = " << next_i5[ip] << endl;
       
@@ -278,8 +278,8 @@ sieve_slice6<btable, longint>::eratosthenes()
 
   double bound_p = 1+sqrt((double)window_last);
   // primes of primes:: cannot exceed max_prime()
-  double bound1_p = min(double(primes6::max_prime()),bound_p);
-  while (p = primes6::prime(ip++), p <= bound1_p)
+  double bound1_p = min(double(primes_6::max_prime()),bound_p);
+  while (p = primes_6::prime(ip++), p <= bound1_p)
    {
      sieve_by(p);
      if (p >= window_first) 
@@ -288,10 +288,10 @@ sieve_slice6<btable, longint>::eratosthenes()
    }
 
   if (bound_p > bound1_p) {
-    cout << "primes6::max_prime() = " << primes6::max_prime()\
+    cout << "primes_6::max_prime() = " << primes_6::max_prime()\
 	 << "  is too small to sieve until window_last = " << window_last << endl;
     cout << "We finish eratosthenes_sieve using a prime_generator " << endl;
-    prime_generator6 pg(long(min(1.1*bound_p, 4000000000.0)), primes6::max_prime());
+    prime_generator6 pg(long(min(1.1*bound_p, 4000000000.0)), primes_6::max_prime());
     //pg.display();
     p=pg.next_prime();
     while (p < bound_p) {

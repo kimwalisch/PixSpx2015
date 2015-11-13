@@ -8,7 +8,7 @@ long128 nthleftp(long128 x, long64 n) {
   long step = min(1.2 * n * logx  , 10000000000.0);
   long64 maxprime = min(sqrt(double(x+210.0)), 1000000000.0);
 
-  primes::init_prime_table(maxprime,2);
+  presieved_primes::init_prime_table(maxprime,2);
 
   sieve_by_slice<bit_table, long128> sieve_table(2,1,step,x-step,6,AUTO_SIEVE);
   long128 p=sieve_table.get_previous_prime();

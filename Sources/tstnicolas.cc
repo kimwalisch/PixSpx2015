@@ -2,7 +2,7 @@
 #include<iostream>
 #include<iomanip>
 
-using namespace primes;
+using namespace presieved_primes;
 
 double gamma_euler   = 0.57721566490153286061;
 double gamma1 = -0.07281584548367672486;
@@ -53,11 +53,11 @@ int main(int argc, char* argv[]) {
   std::cout << std::setprecision(12);
   cout << "x= " << x << endl;
   cout << "Table des premiers jusqu'à 1000000"  << endl;
-  primes::init_prime_table(1000000);
-  //primes::display();
+  presieved_primes::init_prime_table(1000000);
+  //presieved_primes::display();
 
  
-  sieve_by_slice<bit_table_cnte, long64> sieve(2,1,wsize,0, primes::presieve_base, AUTO_SIEVE);
+  sieve_by_slice<bit_table_cnte, long64> sieve(2,1,wsize,0, presieved_primes::presieve_base, AUTO_SIEVE);
 
   traite(2);
   traite(3);

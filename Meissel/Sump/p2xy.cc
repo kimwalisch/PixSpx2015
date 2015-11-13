@@ -12,10 +12,10 @@ sum_p2xy() {
     cout << "CALCUL DE SUMP2(x,y)\n\n";
     cout.flush();
     }
-  long main_sieve_size = next_mult(2*meissel::y,primes::presieve_base);
-  long aux_sieve_size = next_mult(meissel::y/3,primes::presieve_base);
-  sieve_by_slice<bit_table,long64> aux_sieve(2,1,aux_sieve_size,0,primes::presieve_base,AUTO_SIEVE);
-  sieve_by_slice<bit_table,long64> main_sieve(2,1,main_sieve_size,0,primes::presieve_base,AUTO_SIEVE);
+  long main_sieve_size = next_mult(2*meissel::y,presieved_primes::presieve_base);
+  long aux_sieve_size = next_mult(meissel::y/3,presieved_primes::presieve_base);
+  sieve_by_slice<bit_table,long64> aux_sieve(2,1,aux_sieve_size,0,presieved_primes::presieve_base,AUTO_SIEVE);
+  sieve_by_slice<bit_table,long64> main_sieve(2,1,main_sieve_size,0,presieved_primes::presieve_base,AUTO_SIEVE);
   
   long64 p = aux_sieve.get_next_prime();
   while (p <= meissel::sqr2_x)
@@ -60,6 +60,6 @@ sum_p2xy() {
     p2xy += p * (Sqp-Sfp);
     p = aux_sieve.get_previous_prime();
   }
-  cout << "Before living p2 Premier 9 = primes::prime(9)= " << primes::prime(9) << endl;
+  cout << "Before living p2 Premier 9 = presieved_primes::prime(9)= " << presieved_primes::prime(9) << endl;
   return p2xy;
 }

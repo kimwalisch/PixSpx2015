@@ -1,7 +1,7 @@
 #include<mylib.h>
 
 int main(int argc, char* argv[]) {
-  primes6::init_primes(100000);
+  primes_6::init_primes(100000);
   long pmax= (argc==1)? 995 : atol(argv[1]);
   cout << "Primes done \n";
   

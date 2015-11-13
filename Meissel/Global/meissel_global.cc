@@ -78,7 +78,7 @@ namespace meissel{
   sx = new long64[2+meissel::pi_y];
   sx[0]=0;
   for (int i=1; i <= meissel::pi_y; i++)
-    sx[i] = sx[i-1] + primes::prime(i);
+    sx[i] = sx[i-1] + presieved_primes::prime(i);
   sy = sx[meissel::pi_y];
 }
 }

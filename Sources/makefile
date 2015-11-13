@@ -10,9 +10,9 @@ CXX=g++ $(DFLAGS) -O2 -I $(INC)
 
 OBJS=    arith_long128.o arith_functions.o\
 	bit_table.o bit_table_cnte.o bit_table_dynamic.o\
-	sieve_access_frame.o primes.o sieve128_pg.o\
+	sieve_access_frame.o presieved_primes.o sieve128_pg.o\
 	sieve_large.o nth_rightp.o nth_leftp.o\
-	primes6.o bit_sum_dynamic.o
+	primes.o primes6.o bit_sum_dynamic.o
 
 %	: %.cc .headers
 	$(CXX) $< $(OBJS) $(LFLAGS) $(LPATH) -o $@

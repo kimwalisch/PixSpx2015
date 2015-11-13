@@ -14,10 +14,10 @@ int main(int argc, char* argv[]) {
   
   cout << "boundp = " << boundp << endl;
 
-  primes::init_prime_table(boundp,2);
-  primes::display();
+  presieved_primes::init_prime_table(boundp,2);
+  presieved_primes::display();
 
-  prime_generator pg(wsize, primes::max_prime());
+  prime_generator pg(wsize, presieved_primes::max_prime());
   pg.display();
 
   long64 p;

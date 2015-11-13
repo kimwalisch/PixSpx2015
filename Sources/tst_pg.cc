@@ -11,8 +11,8 @@ int main(int argc, char* argv[]) {
   cout << "N = " << N << endl;
   cout << "\nPrime table upto " << N << endl;
 
-  primes::init_prime_table(N,2);
-  primes::display();
+  presieved_primes::init_prime_table(N,2);
+  presieved_primes::display();
 
   long wsize = 5000000;
   long p;

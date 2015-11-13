@@ -10,7 +10,7 @@ long128 sumS0()
   cout << "In simple_leaves \n";
 #endif
 
-  accessf.create(primes::presieve_base, 2, 1);
+  accessf.create(presieved_primes::presieve_base, 2, 1);
 
   long128 res=  accessf.sum128_6(meissel::x);
 
@@ -45,12 +45,12 @@ long128 sumS0()
 
   for  ( ; b_prime <= meissel::pi_y; b_prime++)
     { 
-      long128 xm = meissel::x/primes::prime(b_prime);
+      long128 xm = meissel::x/presieved_primes::prime(b_prime);
       meissel::count_unary_terms++;
-      res -=  primes::prime(b_prime)*accessf.sum128_6(xm);
+      res -=  presieved_primes::prime(b_prime)*accessf.sum128_6(xm);
 #ifdef DEBUG_S0
-      cout <<  primes::prime(b_prime)\
-	   << "   primes::prime(b_prime)*accessf.sum128_6(xm) = " << -primes::prime(b_prime) *accessf.sum128_6(xm) << "   res " << res << endl;
+      cout <<  presieved_primes::prime(b_prime)\
+	   << "   presieved_primes::prime(b_prime)*accessf.sum128_6(xm) = " << -presieved_primes::prime(b_prime) *accessf.sum128_6(xm) << "   res " << res << endl;
 #endif
     }
 #ifdef DEBUG_S0

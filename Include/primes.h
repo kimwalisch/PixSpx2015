@@ -4,6 +4,14 @@
 #include<mylib.h>
 
 namespace primes{
+  void init_primes(long32);
+  int number_of_primes();
+  int max_prime();
+  int prime(int);
+}
+
+
+namespace presieved_primes{
   extern long32 presieve_base;
   extern long32 number_of_presieve_primes;
   extern long32 sum_of_presieve_primes;
@@ -24,7 +32,7 @@ namespace primes{
 }
 
 
-namespace primes6{
+namespace primes_6{
   extern const int presieve_base;
   extern const int number_of_presieve_primes;
   extern const int sum_of_presieve_primes;
@@ -36,8 +44,6 @@ namespace primes6{
   long32 piB(long32 i);
   inline long sum(int i) {return Sp[i];}
   void init_primes(long);
-  void init_all_primes(long);
-  //void display_prime_table();
   long32 number_of_primes();
   long32 index_of_first_prime_bigger_than(long x);
   void display();

@@ -8,8 +8,8 @@ int main(int argc, char* argv[]) {
     }
   long128 a=atolong128(argv[1]);
   long128 h=atolong128(argv[2]);
-  primes::init_prime_table(100);
-  primes::display();
+  presieved_primes::init_prime_table(100);
+  presieved_primes::display();
   cout << "a=   " << a << "     a+h= " << a+h << endl;
   interval_sieve<bit_table,long128> T(a,a+h);
   T.display(T.get_bit_size());

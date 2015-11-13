@@ -10,7 +10,7 @@ long128 nthrightp(long128 x, long64 n) {
   //cout << "x= " << x << endl;
   long64 maxprime = min(sqrt(double(x+1.2*n*logx))+200, 1000000000.0);
 
-  primes::init_prime_table(maxprime,2);
+  presieved_primes::init_prime_table(maxprime,2);
   //primes::display();
 
 

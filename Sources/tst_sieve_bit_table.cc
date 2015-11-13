@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[]) {
   long32 wsize = (argc==2)? atoi(argv[1]) : 100;
-  primes::init_prime_table(1000,3);
+  presieved_primes::init_prime_table(1000,3);
 
   cout << "Sieve par tranche avec crible d'Eratosthène automatique\n";
   sieve_by_slice<bit_table,long64> sl(2,1,wsize,0,6, AUTO_SIEVE);

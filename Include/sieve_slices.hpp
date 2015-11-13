@@ -155,7 +155,7 @@ sieve_by_slice<btable, longint>::eratosthenes()
 #ifdef DEBUG_SV
   cout << "In ERATOS\n";
 #endif
-  if (!primes::primes_initialized) {
+  if (!presieved_primes::primes_initialized) {
     cout << "Error in sieve_by_slice::eratosthenes:   prime_table is not initailized\n";
     error();
   }
@@ -171,18 +171,18 @@ sieve_by_slice<btable, longint>::eratosthenes()
   // bound for the primes we need
   double bound_p = sqrt((double)get_window_end()+2);
   // primes of primes:: cannot exceed max_prime()
-  double bound1_p = min(double(primes::max_prime()),bound_p);
-  while (p = primes::prime(ip++), p <= bound1_p)
+  double bound1_p = min(double(presieved_primes::max_prime()),bound_p);
+  while (p = presieved_primes::prime(ip++), p <= bound1_p)
    {
      sieve_by(p);
      if (p >= window_start && mod32(p, k) == l) 
        btable::set_bit(lower_index64(p-window_start));
    }
   if (bound_p > bound1_p) {
-    cout << "primes::max_prime() = " << primes::max_prime()\
+    cout << "presieved_primes::max_prime() = " << presieved_primes::max_prime()\
 	 << "  is too small to sieve until window_end = " << get_window_end() << endl;
     cout << "We finish eratosthenes_sieve using a prime_generator " << endl;
-    prime_generator pg(long(min(1.1*bound_p, 4000000000.0)), primes::max_prime());
+    prime_generator pg(long(min(1.1*bound_p, 4000000000.0)), presieved_primes::max_prime());
     //pg.display();
     p=pg.next_prime();
     while (p < bound_p) {
@@ -280,7 +280,9 @@ template<class btable, class longint> void
 sieve_by_slice<btable, longint>::init_primes(longint x)
 { 
   // index_first_prime = 1+lower_index64(x - window_start); Remplacé le 13/11/2015 par
+  cout << "In init_primes x= " << x << "   window_first= " << window_start << endl;
   index_first_prime = lower_index64(x - window_start);
+  cout << "index_first_prime= " << index_first_prime << endl;
   if (get_integer(index_first_prime) == x) {
     index_first_prime -= 1;
   }

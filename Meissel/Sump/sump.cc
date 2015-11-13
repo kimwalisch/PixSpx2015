@@ -79,25 +79,25 @@ void check_data(long128 x, long64 y=0, long64 z=0, int verbose=0)
     cout << "\nMaking prime table up to y";// << endl;
   }
 
-  primes::init_prime_table(meissel::y, meissel::number_of_presieve_primes);
+  presieved_primes::init_prime_table(meissel::y, meissel::number_of_presieve_primes);
   if (verbose) {
-    primes::display();
+    presieved_primes::display();
   }
 
   // no prime larger than y should be considered
   meissel::sqr2_z = min32(meissel::sqr2_z, meissel::y); 
 
   // the number of primes up to ...
-  meissel::pi_y      = primes::piB(meissel::y);
-  meissel::pi_sqr2_z = primes::piB(meissel::sqr2_z); 
-  meissel::pi_sqr3_x = primes::piB(meissel::sqr3_x);
-  meissel::pi_sqr4_x = primes::piB(meissel::sqr4_x);
-  meissel::pi_sqr2_x_y = primes::piB(meissel::sqr2_x_y);
-  meissel::pi_x_y2   = primes::piB(meissel::x_y2);
+  meissel::pi_y      = presieved_primes::piB(meissel::y);
+  meissel::pi_sqr2_z = presieved_primes::piB(meissel::sqr2_z); 
+  meissel::pi_sqr3_x = presieved_primes::piB(meissel::sqr3_x);
+  meissel::pi_sqr4_x = presieved_primes::piB(meissel::sqr4_x);
+  meissel::pi_sqr2_x_y = presieved_primes::piB(meissel::sqr2_x_y);
+  meissel::pi_x_y2   = presieved_primes::piB(meissel::x_y2);
   
   // for prime(s) with s at least equal to that bound, x/p 
   // can be represented without loss of precision as a double
-  meissel::bound_for_good_primes = primes::piB(x/((long64)EXACT_DOUBLE_MAX+1));
+  meissel::bound_for_good_primes = presieved_primes::piB(x/((long64)EXACT_DOUBLE_MAX+1));
 
   if (meissel::verbose)
     {
@@ -108,7 +108,7 @@ void check_data(long128 x, long64 y=0, long64 z=0, int verbose=0)
       cout << "  z^(1/2)          = " << meissel::sqr2_z << "\n";
       cout << "  (x/y)^(1/2)      = " << meissel::sqr2_x_y << "\n";
       cout << "  x/y^2            = " << meissel::x_y2 << "\n";
-      cout << "  pi(y)            = " << meissel::pi_y + primes::number_of_presieve_primes << "\n";
+      cout << "  pi(y)            = " << meissel::pi_y + presieved_primes::number_of_presieve_primes << "\n";
       cout << "  piB(y)           = " << meissel::pi_y << "    (piB(u) = pi(u) - number-of_presieve_primes)\n";
       cout << "  piB(z^(1/2))     = " << meissel::pi_sqr2_z << "\n";
       cout << "  piB(x^(1/3))     = " << meissel::pi_sqr3_x << "\n";
@@ -116,7 +116,7 @@ void check_data(long128 x, long64 y=0, long64 z=0, int verbose=0)
       cout << "  piB((x/y)^(1/2)) = " << meissel::pi_sqr2_x_y << "\n";
       cout << "  piB(x/y^2)       = " << meissel::pi_x_y2 << "\n";
       cout << "  bound for good primes = " << meissel::bound_for_good_primes 
-	   << "  (" << primes::prime(meissel::bound_for_good_primes) << ")\n\n";
+	   << "  (" << presieved_primes::prime(meissel::bound_for_good_primes) << ")\n\n";
     }
   meissel::last_clock = clock(); // initialization of the timer
 }
@@ -135,8 +135,8 @@ long128 sumpx(long128 x, long64 y, long64 z, int verbose)
       if (x < 4)
 	return max32(0,x-1);
       else {
-	primes::init_prime_table(meissel::x,meissel::number_of_presieve_primes);
-	return primes::piB(meissel::x) + primes::number_of_presieve_primes;
+	presieved_primes::init_prime_table(meissel::x,meissel::number_of_presieve_primes);
+	return presieved_primes::piB(meissel::x) + presieved_primes::number_of_presieve_primes;
       }
     }
 
@@ -157,7 +157,7 @@ long128 sumpx(long128 x, long64 y, long64 z, int verbose)
     cout << "   Phi(x,y)   =  S0 + S1 + S2 + S3 = " << fxy_term << "\n\n";
   }
 
-  long128 pi_x = fxy_term - p2 + (long128)(meissel::pi_y - 1) + primes::number_of_presieve_primes;
+  long128 pi_x = fxy_term - p2 + (long128)(meissel::pi_y - 1) + presieved_primes::number_of_presieve_primes;
     
   if (meissel::verbose) {
     cout << "Pi(x) = Phi(x,y) - P2(x,y) + Pi(y)-1  = " << pi_x << endl;

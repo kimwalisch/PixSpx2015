@@ -29,7 +29,7 @@ long128 sumS3()
   meissel::binary_sum = 0;
   meissel::non_binary_sum = 0;
 
-  sieve.create(2, 1, window_size, 0, primes::presieve_base, NO_SIEVE);
+  sieve.create(2, 1, window_size, 0, presieved_primes::presieve_base, NO_SIEVE);
 
   p_partial_sums.resize(meissel::pi_y,0);
   //  p_partial_sums.set_elts_to(0);
@@ -38,8 +38,8 @@ long128 sumS3()
     if (meissel::ifgp-1 <= 0)  // no bad primes
       cout << "All primes are good" << endl;
     else
-      cout << "Bad primes : from  " << primes::prime(1) << " upto " << primes::prime(aux_ip) <<  endl;
-    cout << "Good primes begin with " << primes::prime(meissel::ifgp)<< endl;
+      cout << "Bad primes : from  " << presieved_primes::prime(1) << " upto " << presieved_primes::prime(aux_ip) <<  endl;
+    cout << "Good primes begin with " << presieved_primes::prime(meissel::ifgp)<< endl;
   }
   
   do 
@@ -54,7 +54,7 @@ long128 sumS3()
       long32 aux_ip = min32(meissel::ifgp-1, meissel::pi_sqr4_x);
       for (long32 b_prime = 1; b_prime <= aux_ip; b_prime++)
 	{
-	  pb  = primes::prime(b_prime);
+	  pb  = presieved_primes::prime(b_prime);
 	  xp  = meissel::x/pb;
 	  long32 zpb = meissel::z/pb;	  
 	  long128 end128 = (sieve.get_window_start())? xp/sieve.get_window_start() : xp;
@@ -83,13 +83,13 @@ long128 sumS3()
 
 #ifdef DEBUG_ST
       cout << "Now computing with good primes\n";
-      cout << "Now computing with good primes begining with " << primes::prime(meissel::ifgp)<< endl;
+      cout << "Now computing with good primes begining with " << presieved_primes::prime(meissel::ifgp)<< endl;
 #endif
 
       for (long32 b_prime = meissel::ifgp; b_prime <= meissel::pi_sqr4_x; 
 	   b_prime++)
 	{
-	  pb  = primes::prime(b_prime);
+	  pb  = presieved_primes::prime(b_prime);
 	  //cout << "b_prime= " << b_prime << "  pb= " << pb << endl;
 	  xp_double  = (double)(meissel::x/pb);
 	  double zpb = (double)(meissel::z/pb);
@@ -128,9 +128,9 @@ long128 sumS3()
 
 void  collect_binary_terms(long32 b_prime)
 {
-  long32 s_prime = primes::index_of_first_prime_bigger_than(sieve_begin);
+  long32 s_prime = presieved_primes::index_of_first_prime_bigger_than(sieve_begin);
   s_prime = max32(s_prime, b_prime+1);
-  long32 q = primes::prime(s_prime);
+  long32 q = presieved_primes::prime(s_prime);
 
 #ifdef DEBUG_ST
   cout << "collect_binary_terms" << endl;
@@ -155,16 +155,16 @@ void  collect_binary_terms(long32 b_prime)
 	+ p_partial_sums[b_prime]
 	   << "\n";
 #endif
-      q = primes::prime(++s_prime);
+      q = presieved_primes::prime(++s_prime);
     }    
 }
 
 void 
 collect_binary_terms_double(long32 b_prime)
 {
-  long32 s_prime = primes::index_of_first_prime_bigger_than(sieve_begin);
+  long32 s_prime = presieved_primes::index_of_first_prime_bigger_than(sieve_begin);
   s_prime = max32(s_prime, b_prime+1);
-  long32 q = primes::prime(s_prime);
+  long32 q = presieved_primes::prime(s_prime);
 
 #ifdef DEBUG_ST
   cout << "collect_binary_terms_double" << endl;
@@ -183,7 +183,7 @@ collect_binary_terms_double(long32 b_prime)
       meissel::count_binary_terms++;
       meissel::binary_sum += sieve.sum((long64)(xp_double/q))
 	+ p_partial_sums[b_prime];
-      q = primes::prime(++s_prime);
+      q = presieved_primes::prime(++s_prime);
     }    
 }
 
@@ -224,7 +224,7 @@ collect_non_binary_terms_double(long32 b_prime)
 {
 #ifdef DEBUG_ST
   cout << "collect_non_binary_terms double" << endl;
-  cout << "b_prime= " << b_prime << "     prime(b_prime) = " << primes::prime(b_prime) << endl;
+  cout << "b_prime= " << b_prime << "     prime(b_prime) = " << presieved_primes::prime(b_prime) << endl;
 #endif
 
   long32 a_prime = b_prime+1;

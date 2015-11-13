@@ -17,8 +17,8 @@ long128 sumS1() {
   cout << "In S1 meissel::sy= " << meissel::sy << endl;
   for (int i = 1+meissel::pi_sqr3_x; i <= meissel::pi_y; i++)
     {
-      //cout << "p= " << primes::prime(i) << "    sx[i]= " << meissel::sx[i] << endl;
-      Somme1 += primes::prime(i)*(meissel::sy-meissel::sx[i]);
+      //cout << "p= " << presieved_primes::prime(i) << "    sx[i]= " << meissel::sx[i] << endl;
+      Somme1 += presieved_primes::prime(i)*(meissel::sy-meissel::sx[i]);
     }
   //cout << "S1() = " << Somme1 << endl << endl;
   return Somme1;

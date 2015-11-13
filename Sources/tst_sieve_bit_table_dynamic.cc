@@ -4,7 +4,7 @@
 int main(int argc, char* argv[]) {
   //  long32 n = (argc==2)? atoi(argv[1]) : 100;
   long32 wsize = 100;
-  primes::init_prime_table(100000,3);
+  presieved_primes::init_prime_table(100000,3);
   
   sieve_by_slice<bit_table_dynamic,long64> sl(2,1,wsize,0,6, NO_SIEVE);
   sl.display();

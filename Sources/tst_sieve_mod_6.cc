@@ -9,10 +9,10 @@ int main(int argc, char* argv[]) {
   cout << "w_first_approx = " << w_first_approx << endl;
   
   cout << "Primes will be done \n";
-  primes6::init_primes(100000);
+  primes_6::init_primes(100000);
   cout << "Primes done \n";
   
-  primes6::display();
+  primes_6::display();
   
   sieve_mod_6<bit_table_cnte, long64> sieve(w_size_approx, w_first_approx, AUTO_SIEVE);
   sieve.show(sieve.bit_size);

@@ -11,10 +11,10 @@ main_term_of_p2()
   long64 main_window_size = min64(10*((long64)meissel::y), 2000000);
   long64 q;
   long128 sum = (long128)0;
-  aux_sieve.create (2, 1, aux_window_size, meissel::sqr2_x, primes::presieve_base, AUTO_SIEVE);
+  aux_sieve.create (2, 1, aux_window_size, meissel::sqr2_x, presieved_primes::presieve_base, AUTO_SIEVE);
   q = aux_sieve.get_previous_prime(meissel::sqr2_x);
 
-  main_sieve.create(2, 1, main_window_size, 0, primes::presieve_base, AUTO_SIEVE);
+  main_sieve.create(2, 1, main_window_size, 0, presieved_primes::presieve_base, AUTO_SIEVE);
 
   // Computation of the largest prime p not greater than sqr2 x
 

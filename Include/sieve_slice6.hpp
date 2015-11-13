@@ -125,8 +125,8 @@ sieve_slice6<btable, longint>::eratosthenes()
 
   double bound_p = 1+sqrt((double)window_last);
   // primes of primes:: cannot exceed max_prime()
-  double bound1_p = min(double(primes6::max_prime()),bound_p);
-  while (p = primes6::prime(ip++), p <= bound1_p)
+  double bound1_p = min(double(primes_6::max_prime()),bound_p);
+  while (p = primes_6::prime(ip++), p <= bound1_p)
    {
      sieve_by(p);
      if (p >= window_first) {
@@ -136,10 +136,10 @@ sieve_slice6<btable, longint>::eratosthenes()
    }
 
   if (bound_p > bound1_p) {
-    cout << "primes6::max_prime() = " << primes6::max_prime()\
+    cout << "primes_6::max_prime() = " << primes_6::max_prime()\
 	 << "  is too small to sieve until window_last = " << window_last << endl;
     cout << "We finish eratosthenes_sieve using a prime_generator " << endl;
-    prime_generator6 pg(long(min(1.1*bound_p, 4000000000.0)), primes6::max_prime());
+    prime_generator6 pg(long(min(1.1*bound_p, 4000000000.0)), primes_6::max_prime());
     //pg.display();
     p=pg.next_prime();
     while (p < bound_p) {
@@ -310,8 +310,10 @@ sieve_slice6<btable, longint>::get_previous_prime(longint x)
 template<class btable, class longint> void
 sieve_slice6<btable, longint>::init_primes(longint x)
 {
-  // index_first_prime = 1+offset(x - window_first); remplacé par 
+  // index_first_prime = 1+offset(x - window_first); remplacé par
+  cout << "In init_primes x= " << x << "   window_first= " << window_first << endl;
   index_first_prime = offset(x - window_first);
+  cout << "index_first_prime= " << index_first_prime << endl;
   if (get_integer(index_first_prime) == x) {
     index_first_prime -= 1;
   }

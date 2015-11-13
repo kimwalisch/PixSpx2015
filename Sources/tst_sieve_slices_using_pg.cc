@@ -7,8 +7,8 @@ int main(int argc, char* argv[]) {
 
   long64 maxprime = (argc>=3)? atol(argv[2]) : 1000000;
 
-  primes::init_prime_table(maxprime,2);
-  primes::display();
+  presieved_primes::init_prime_table(maxprime,2);
+  presieved_primes::display();
 
 
   sieve_by_slice<bit_table, long128> sieve_table(2,1,1000,a,6,AUTO_SIEVE);

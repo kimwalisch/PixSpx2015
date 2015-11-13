@@ -13,10 +13,10 @@ squarefree_table_recursive_step(long32 u, long32 i)
   long32 v;
   long32 zu = min32(abs(meissel::z/u),meissel::y);
 
-  while (primes::prime(j) <= zu)
+  while (presieved_primes::prime(j) <= zu)
     {
-      v = -(long32)primes::prime(j++)*u;
-      //cout << "primes::prime(j)= " << primes::prime(j) << endl;
+      v = -(long32)presieved_primes::prime(j++)*u;
+      //cout << "presieved_primes::prime(j)= " << presieved_primes::prime(j) << endl;
       //cout << "v= " << v << endl;
       buff[cnt++] = v;
       squarefree_table_recursive_step(v, j);
@@ -31,9 +31,9 @@ bool comp_abs(int i, int j) {
 void 
 squarefree_table_p_init(long32 i)
 {
-  buff[0] = -(long32)primes::prime(i);
+  buff[0] = -(long32)presieved_primes::prime(i);
   cnt = 1;
-  squarefree_table_recursive_step(-(long32)primes::prime(i), i+1);
+  squarefree_table_recursive_step(-(long32)presieved_primes::prime(i), i+1);
   meissel::p_sqf[i].resize(cnt+1);
   for (long32 j = 0; j < cnt; j++)
     meissel::p_sqf[i][j] = buff[j];
@@ -55,7 +55,7 @@ squarefree_table_init()
       squarefree_table_p_init(i);
  #ifdef DEBUG_SQF
       cout << "Square-free list by smallest prime factor = " 
-	   << primes::prime(i) << "\n";
+	   << presieved_primes::prime(i) << "\n";
       meissel::p_sqf[i].display(8);
 #endif
 #ifdef DEBUG_SAFE

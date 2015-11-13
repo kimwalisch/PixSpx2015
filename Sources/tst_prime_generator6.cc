@@ -16,8 +16,8 @@ int main(int argc, char* argv[]) {
   cout << "N = " << N << endl;
   cout << "\nPrime table upto " << boundp <<  " would be sufficient\n";
 
-  primes6::init_primes(boundp);
-  primes6::display();
+  primes_6::init_primes(boundp);
+  primes_6::display();
 
   cout << "Creation d'un prime generator de taille " << wsize << endl;
   prime_generator6 pg(wsize);

@@ -36,11 +36,11 @@ long128 sumU() {
   //cout << "SommeU demarre = " << SommeU << "\n";
   for (int k = 1+meissel::pi_sqr2_x_y; k <= meissel::pi_sqr3_x; k++)
     {
-      long p = primes::prime(k);
+      long p = presieved_primes::prime(k);
       xp2_long =meissel::x/p;
       int xp2 = xp2_long/p;
       //cout << "p = " << p << "    xp2= " << xp2 << endl;
-      SommeU -= fint(p) * meissel::sx[primes::piB(xp2)];
+      SommeU -= fint(p) * meissel::sx[presieved_primes::piB(xp2)];
     }
   if (meissel::verbose) {
     cout << "      U = " << SommeU << endl <<endl;

@@ -11,8 +11,8 @@ int main(int argc, char* argv[]) {
   long64  wsz  =  atolong64(argv[2]);
   
   
-  primes::init_prime_table(500000);
-  primes::display();
+  presieved_primes::init_prime_table(500000);
+  presieved_primes::display();
 
 
  sieve128pg sieve(wsz,x);
