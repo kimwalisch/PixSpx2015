@@ -10,10 +10,7 @@ endif
 
 INCDIR="../../Include"
 LIBDIR="../../"
-TEST_SRCS=$(shell find . -name "tst*.cc")
-TESTS=$(subst .cc,,$(TEST_SRCS))
 
-#CXX=llvm-g++ -I $(INCDIR) $(DFLAGS) -O0
 CXX=g++ -I $(INCDIR) $(DFLAGS) -O3
 
 OBJS=  	../Global/meissel_global.o ../Global/squarefree_table.o sump.o p2xy.o sump_fxy.o S0.o S1.o SU.o V1.o\
@@ -30,7 +27,7 @@ all:	$(OBJS)
 	$(CXX) -I $(INCDIR) $< $(OBJS) $(LFLAGS) $(LPATH) -o $@
 
 clean:
-	rm -f *.o ithprime $(EXEC)
+	rm -f *.o ithprime sumpx
 
 # headers files
 #.headers: ../meissel_global.h
