@@ -287,18 +287,16 @@ sieve_by_slice<btable, longint>::init_primes(longint x)
     int q = (x - window_start) / window_size;
     window_start += q * window_size;
     btable::fill();
-    cout << "ZZ\n";
     eratosthenes();
-    cout << "ZZZZZ\n";
   }
   //index_first_prime = 1+lower_index64(x - window_start);  Remplacé le 13/11/2015 par
-  cout << "In init_primes x= " << x << "   window_first= " << window_start << endl;
+  //cout << "In init_primes x= " << x << "   window_first= " << window_start << endl;
   index_first_prime = lower_index64(x - window_start);
-  cout << "index_first_prime= " << index_first_prime << "   image fp = " << get_integer(index_first_prime) << endl;
+  //cout << "index_first_prime= " << index_first_prime << "   image fp = " << get_integer(index_first_prime) << endl;
   if (get_integer(index_first_prime) == x) {
     index_first_prime -= 1;
   }
-  cout << "Init primes put Index_first_prime  to " << index_first_prime << "  d'image " <<  get_integer(index_first_prime) << endl;
+  //cout << "Init primes put Index_first_prime  to " << index_first_prime << "  d'image " <<  get_integer(index_first_prime) << endl;
 }
 
 template<class btable, class longint> longint
