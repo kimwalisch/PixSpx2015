@@ -232,8 +232,6 @@ sieve_by_slice<btable, longint>::get_next_prime()
 	  //cout << "index_first_prime = " << index_first_prime << "    image " << get_integer(index_first_prime) << endl;
 	  if (btable::get_bit(index_first_prime))
 	    return get_integer(index_first_prime);
-	  else
-	    cout << "   not prime \n";
 	}
       //cout << "sieve_by_slices::forward\n";
       shift_window_forward();
