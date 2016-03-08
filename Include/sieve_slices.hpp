@@ -219,6 +219,7 @@ sieve_by_slice<btable, longint>::get_first_prime()
 template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_next_prime()
 {
+  //cout << "In get_next_prime:  index_first_prime = " << index_first_prime << "    image " << get_integer(index_first_prime) << endl;
   if (sieve_t == NO_SIEVE)
     {
       cout << "sieve_by_slice de type NO_SIEVE\n";
@@ -232,6 +233,8 @@ sieve_by_slice<btable, longint>::get_next_prime()
 	  //cout << "index_first_prime = " << index_first_prime << "    image " << get_integer(index_first_prime) << endl;
 	  if (btable::get_bit(index_first_prime))
 	    return get_integer(index_first_prime);
+	  //else
+	    //cout << "not prime " << endl;
 	}
       //cout << "sieve_by_slices::forward\n";
       shift_window_forward();
@@ -283,18 +286,19 @@ sieve_by_slice<btable, longint>::init_primes(longint x)
   if (x > window_end) {
     int q = (x - window_start) / window_size;
     window_start += q * window_size;
-    //cout << "ZZ\n";
+    btable::fill();
+    cout << "ZZ\n";
     eratosthenes();
-    //cout << "ZZZZZ\n";
+    cout << "ZZZZZ\n";
   }
-  // index_first_prime = 1+lower_index64(x - window_start); Remplacé le 13/11/2015 par
-  //cout << "In init_primes x= " << x << "   window_first= " << window_start << endl;
+  //index_first_prime = 1+lower_index64(x - window_start);  Remplacé le 13/11/2015 par
+  cout << "In init_primes x= " << x << "   window_first= " << window_start << endl;
   index_first_prime = lower_index64(x - window_start);
-  //cout << "index_first_prime= " << index_first_prime << "   image fp = " << get_integer(index_first_prime) << endl;
+  cout << "index_first_prime= " << index_first_prime << "   image fp = " << get_integer(index_first_prime) << endl;
   if (get_integer(index_first_prime) == x) {
     index_first_prime -= 1;
   }
-  //cout << "Init primes put Index_first_prime  to " << index_first_prime << "  d'image " <<  get_integer(index_first_prime) << endl;
+  cout << "Init primes put Index_first_prime  to " << index_first_prime << "  d'image " <<  get_integer(index_first_prime) << endl;
 }
 
 template<class btable, class longint> longint
