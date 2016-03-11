@@ -32,6 +32,21 @@ sieve_by_slice<btable, longint>::create(int k0, int l0, long64 slice_size,
 }
 
 template<class btable, class longint> void 
+sieve_by_slice<btable, longint>::set_around(longint x)
+{
+  if ((x < window_start) || (x > window_end)) {
+    cout << "Now  x = " << x << "   window_start= " << window_start << "    end= " << window_end << endl;
+    cout << "x not in current_window move it " << endl;
+    long q = x / window_size;
+    window_start = q * window_size;
+    window_end   = window_start + window_size-1;
+    btable::fill();
+    cout << "Now  x = " << x << "   window_start= " << window_start << "    end= " << window_end << endl;
+  }
+}
+
+
+template<class btable, class longint> void 
 sieve_by_slice<btable, longint>::sieve_by(long64 p)
 {
   long64 inc = p<<1;
@@ -280,17 +295,10 @@ sieve_by_slice<btable, longint>::get_previous_prime(longint x)
   return get_previous_prime();
 }
 
-template<class btable, class longint> void
-sieve_by_slice<btable, longint>::init_primes(longint x)
+template<class btable, class longint> void sieve_by_slice<btable, longint>::init_primes(longint x)
 {
-  if (x > window_end) {
-    int q = (x - window_start) / window_size;
-    window_start += q * window_size;
-    btable::fill();
-    eratosthenes();
-  }
-  //index_first_prime = 1+lower_index64(x - window_start);  Remplacé le 13/11/2015 par
-  //cout << "In init_primes x= " << x << "   window_first= " << window_start << endl;
+  set_around(x);
+  eratosthenes();
   index_first_prime = lower_index64(x - window_start);
   //cout << "index_first_prime= " << index_first_prime << "   image fp = " << get_integer(index_first_prime) << endl;
   if (get_integer(index_first_prime) == x) {

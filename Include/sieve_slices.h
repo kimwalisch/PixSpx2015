@@ -31,6 +31,7 @@ template<class btable, class longint> class sieve_by_slice:
     sieve_by_slice(int k, int l, long64 window_size, longint startx, int presieve_base, sieve_type t) {
       create(k, l, window_size, startx, presieve_base, t);
     }
+    void set_around(longint x);
     void display(int how_many = 0);
     void display_counts();
     ~sieve_by_slice() {};
