@@ -35,13 +35,13 @@ template<class btable, class longint> void
 sieve_by_slice<btable, longint>::set_around(longint x)
 {
   if ((x < window_start) || (x > window_end)) {
-    cout << "Now  x = " << x << "   window_start= " << window_start << "    end= " << window_end << endl;
-    cout << "x not in current_window move it " << endl;
+    //cout << "Here x = " << x << "   window_start= " << window_start << "    end= " << window_end << endl;
+    //cout << "x not in current_window move it " << endl;
     long q = x / window_size;
     window_start = q * window_size;
     window_end   = window_start + window_size-1;
     btable::fill();
-    cout << "Now  x = " << x << "   window_start= " << window_start << "    end= " << window_end << endl;
+    //cout << "Now  x = " << x << "   window_start= " << window_start << "    end= " << window_end << endl;
   }
 }
 
