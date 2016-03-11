@@ -1,11 +1,18 @@
+UNAME := $(shell uname)
+ifeq ($(UNAME),Darwin)
+	LFLAGS+=-stdlib=libstdc++
+	LPATH=-L/opt/local/lib
+	EXEC=pidarwin	
+else
+	EXEC=pidebian
+endif
+
 include dflags.mk
-include lflags.mk
 
-INC="../Include"
-TEST_SRCS=$(shell find . -name "tst*.cc")
-TESTS=$(subst .cc,,$(TEST_SRCS))
+INC=-I ~deleglis/SIEVE2015/Include/
+LPATH=-L ~deleglis/SIEVE2015/ -lgmp
 
-CXX=g++ $(DFLAGS) -O2 -I $(INC) -lgmp
+CXX=g++ $(DFLAGS) -O3 -Wall $(INC) 
 
 OBJS=    arith_long128.o arith_functions.o\
 	bit_table.o bit_table_cnte.o bit_table_dynamic.o\
@@ -29,8 +36,8 @@ libsieve.a:     $(OBJS)
 	../Include/prime_generator.h ../Include/sieve_slices.hpp
 	@touch $@
 
-tests: $(OBJS) .headers
-	make $(TESTS)
+tests: ../libsieve.a
+	make_tests
 
 tst_sieve_mod_6:	../Include/sieve_mod_6.h ../Include/sieve_mod_6.hpp tst_sieve_mod_6.cc
 
@@ -41,5 +48,4 @@ moretests: $(OBJ) .headers
 
 clean:
 	rm -f *.o $(TESTS)
-
 # have a look at https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents
