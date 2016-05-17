@@ -4,9 +4,9 @@ UNAME := $(shell uname)
 ifeq ($(UNAME),Darwin)
         LFLAGS+=-stdlib=libstdc++
         LPATH=-L/opt/local/lib
-        EXEC=pidarwin   
+        EXEC=pi
 else
-        EXEC=pidebian
+        EXEC=pi
 endif
 
 INCDIR="../../Include"
