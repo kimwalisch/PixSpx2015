@@ -52,7 +52,7 @@ computes the nth prime.For example
 
 > ithprime 1000000000000
 
-gives the 10^12 nth prime p = 29996224275833 in about 1.55 s.
+gives the 10^12 nth prime,  p = 29996224275833,  in about 1.55 s.
 
 
 
