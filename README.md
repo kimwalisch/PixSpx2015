@@ -45,7 +45,6 @@ and
 
 gives pi(10^20) in about 10h. 40minutes.
 
-
 > ithprime n
 
 computes the nth prime.For example 
@@ -53,6 +52,11 @@ computes the nth prime.For example
 > ithprime 1000000000000
 
 gives the 10^12 nth prime,  p = 29996224275833,  in about 1.55 s.
+
+
+> pi 1000000000000000000000
+
+gives pi(10^21) in 31h 23m on a linux computer running at 3.2 Mhz.
 
 
 
